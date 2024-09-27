@@ -26,6 +26,18 @@
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
 
+Используя [docker-compose.yml](https://github.com/stepynin-georgy/hw_mon_2/blob/main/docker-compose.yml) развернул grafana, prometheus и node-exporter:
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_92.png)
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_93.png)
+
+Проверка подключенного datasource:
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_95.png)
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_94.png)
+
 ## Задание 2
 
 Изучите самостоятельно ресурсы:
@@ -37,16 +49,42 @@
 Создайте Dashboard и в ней создайте Panels:
 
 - утилизация CPU для nodeexporter (в процентах, 100-idle);
+
+``` 100 - (avg(rate(node_cpu_seconds_total{job=~"node_exporter",mode="idle"}[5m])) * 100) ```
+
 - CPULA 1/5/15;
+
+```
+avg(node_load1{job="node_exporter"})
+avg(node_load5{job="node_exporter"})
+avg(node_load15{job="node_exporter"})
+```
+
 - количество свободной оперативной памяти;
+
+```
+node_memory_MemFree_bytes - свободная ОЗУ
+node_memory_MemTotal_bytes - общее количесвто ОЗУ
+```
+
 - количество места на файловой системе.
 
+```
+node_filesystem_avail_bytes
+```
+
 Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_96.png)
 
 ## Задание 3
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
+
+Создал телеграмм-бота, получил его токен и подключил в способах оповещений в Grafana:
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_97.png)
 
 ## Задание 4
 
