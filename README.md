@@ -28,6 +28,8 @@
 
 Используя [docker-compose.yml](https://github.com/stepynin-georgy/hw_mon_2/blob/main/docker-compose.yml) развернул grafana, prometheus и node-exporter:
 
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_101.png)
+
 ![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_92.png)
 
 ![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_93.png)
@@ -86,10 +88,22 @@ node_filesystem_avail_bytes
 
 ![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_97.png)
 
+Добавил алерты и увеличил нагрузку на CPU для проверки. Аллерт пришел в телеграмм:
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_98.png)
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_99.png)
+
+После спада нагрузки пришло сообщение, что проблема решена:
+
+![изображение](https://github.com/stepynin-georgy/hw_mon_2/blob/main/img/Screenshot_100.png)
+
 ## Задание 4
 
 1. Сохраните ваш Dashboard.Для этого перейдите в настройки Dashboard, выберите в боковом меню «JSON MODEL». Далее скопируйте отображаемое json-содержимое в отдельный файл и сохраните его.
 1. В качестве решения задания приведите листинг этого файла.
+
+[dashboard.json](https://github.com/stepynin-georgy/hw_mon_2/blob/main/dashboard.json)
 
 ---
 
